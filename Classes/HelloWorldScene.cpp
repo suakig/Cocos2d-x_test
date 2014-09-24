@@ -111,3 +111,25 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     exit(0);
 #endif
 }
+
+bool HelloWorld::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+    CCLOG("onTouchBegan");
+    
+    return true;
+}
+
+void HelloWorld::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+    CCLOG("onTouchMoved");
+}
+
+void HelloWorld::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+    CCLOG("onTouchEnded");
+}
+
+void HelloWorld::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event){
+    CCLOG("onTouchCancelled");
+}
+
+
+
+
