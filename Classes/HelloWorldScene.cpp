@@ -69,6 +69,14 @@ bool HelloWorld::init()
     // position the sprite on the center of the screen
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
+    auto move = MoveBy::create(2, Point(100, 100));
+
+    auto rotate = RotateBy::create(2, 90);
+
+    auto seq = Spawn::create(move, rotate, nullptr);
+
+    sprite->runAction(seq);
+
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
