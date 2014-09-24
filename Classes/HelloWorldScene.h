@@ -17,6 +17,11 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void OnTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

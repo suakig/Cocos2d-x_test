@@ -27,6 +27,20 @@ bool HelloWorld::init()
         return false;
     }
     
+    //シングルタップ用のリスナーを用意する。
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(_swallowsTouches);
+    
+    //各イベントの割当
+    listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+    listener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+    listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+    listener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+    
+    //イベントディスパッチャにシングルタップ用のリスナーを追加する
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
